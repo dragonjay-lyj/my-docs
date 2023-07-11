@@ -3,7 +3,7 @@
   <id>https://docs.dragonjay.top/</id>
   <title>Docs Demo</title>
   <subtitle>A docs demo for vuepress-theme-hope</subtitle>
-  <updated>2023-07-11T05:02:34.685Z</updated>
+  <updated>2023-07-11T05:40:05.611Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://docs.dragonjay.top/atom.xml"/>
   <link rel="alternate" href="https://docs.dragonjay.top/"/>
@@ -1189,7 +1189,7 @@ Remember to add <code>type: "equipment"</code></p>
     <title type="text">Getting Started</title>
     <id>https://docs.dragonjay.top/quick-start.html</id>
     <link href="https://docs.dragonjay.top/quick-start.html"/>
-    <updated>2023-07-11T03:32:23.000Z</updated>
+    <updated>2023-07-11T05:39:20.000Z</updated>
     <summary type="html"><![CDATA[<h2> 💻 Installation</h2>
 <p>Install the latest version in the blog root directory [recommended</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #61AFEF">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">clone</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-b</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">main</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">https://github.com/DragonJay666/hexo-theme-anzhiyu-en.git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">themes/anzhiyu</span></span>
@@ -1198,10 +1198,7 @@ Remember to add <code>type: "equipment"</code></p>
 <p>Install the latest version in the blog root directory [recommended</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p><strong>Upgrade method</strong>：In the theme directory, run</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Or just delete the <strong>theme/anzhiyu</strong> folder and reinstall it.</p>
-<blockquote>
-<p>To upgrade: In the Hexo root directory, run</p>
-</blockquote>
-<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>:::</p>
+<p>:::</p>
 <h2> ⚙ Application Topics</h2>
 <p>Modify the hexo configuration file <code>_config.yml</code> and change the theme to <code>anzhiyu</code>.</p>
 <div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> Installing the pug and stylus rendering plug-ins</h2>

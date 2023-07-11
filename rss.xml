@@ -6,8 +6,8 @@
     <link>https://docs.dragonjay.top/</link>
     <description>A docs demo for vuepress-theme-hope</description>
     <language>en-US</language>
-    <pubDate>Tue, 11 Jul 2023 05:02:34 GMT</pubDate>
-    <lastBuildDate>Tue, 11 Jul 2023 05:02:34 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Jul 2023 05:40:05 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Jul 2023 05:40:05 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -1183,10 +1183,7 @@ Remember to add <code>type: "equipment"</code></p>
 <p>Install the latest version in the blog root directory [recommended</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p><strong>Upgrade method</strong>：In the theme directory, run</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Or just delete the <strong>theme/anzhiyu</strong> folder and reinstall it.</p>
-<blockquote>
-<p>To upgrade: In the Hexo root directory, run</p>
-</blockquote>
-<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>:::</p>
+<p>:::</p>
 <h2> ⚙ Application Topics</h2>
 <p>Modify the hexo configuration file <code>_config.yml</code> and change the theme to <code>anzhiyu</code>.</p>
 <div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> Installing the pug and stylus rendering plug-ins</h2>
