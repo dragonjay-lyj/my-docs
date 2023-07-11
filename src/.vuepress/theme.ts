@@ -57,6 +57,22 @@ export default hopeTheme({
     rss: true,
   },
 
+  autoCatalog: {
+
+  },
+
+  components: {
+
+  },
+
+  readingTime: {
+
+  },
+
+  sitemap: {
+
+  },
+
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,

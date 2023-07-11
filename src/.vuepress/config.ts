@@ -3,6 +3,10 @@ import { hopeTheme } from "vuepress-theme-hope";
 import { shikiPlugin } from "@vuepress/plugin-shiki";
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { commentPlugin } from "vuepress-plugin-comment2";
+import { autoCatalogPlugin } from "vuepress-plugin-auto-catalog";
+import { componentsPlugin } from "vuepress-plugin-components";
+import { readingTimePlugin } from "vuepress-plugin-reading-time2";
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 export default defineUserConfig({
   base: "/",
   theme: hopeTheme({
@@ -32,6 +36,18 @@ export default defineUserConfig({
       serverURL: "https://com.dragonjay.top",
       // 在这里放置其他选项
       // ...
+    }),
+    autoCatalogPlugin({
+      //插件选项
+    }),
+    componentsPlugin({
+      
+    }),
+    readingTimePlugin({
+      // 你的选项
+    }),
+    sitemapPlugin({
+      hostname: "docs.dragonjay.top",
     }),
   ],
 
