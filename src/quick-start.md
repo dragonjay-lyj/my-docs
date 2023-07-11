@@ -19,12 +19,6 @@ git pull
 
 Or just delete the **theme/anzhiyu** folder and reinstall it.
 
-> To upgrade: In the Hexo root directory, run
-
-```bash
-npm update hexo-theme-anzhiyu
-```
-
 :::
 
 ## ⚙ Application Topics
