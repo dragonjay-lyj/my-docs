@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-beta.64" />
+    <meta name="theme" content="VuePress Theme Hope" />
+    <title>Slide page | Docs Demo</title><meta name="description" content="A docs demo for vuepress-theme-hope">
+    <style>
+      :root {
+        --bg-color: #fff;
+      }
+
+      html[data-theme="dark"] {
+        --bg-color: #1d1e1f;
+      }
+
+      html,
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="preload" href="/assets/style-59109f67.css" as="style"><link rel="stylesheet" href="/assets/style-59109f67.css">
+    <link rel="modulepreload" href="/assets/app-076754c4.js"><link rel="modulepreload" href="/assets/slides.html-85e4c1ba.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-c27b6911.js"><link rel="modulepreload" href="/assets/slides.html-6989b27a.js"><link rel="prefetch" href="/assets/index.html-c577dc92.js" as="script"><link rel="prefetch" href="/assets/hexo-circle-of-friends.html-0be14bd9.js" as="script"><link rel="prefetch" href="/assets/introduction.html-0d0896e2.js" as="script"><link rel="prefetch" href="/assets/page-configuration.html-43866669.js" as="script"><link rel="prefetch" href="/assets/quick-start.html-1443ea3a.js" as="script"><link rel="prefetch" href="/assets/404.html-787fe5c4.js" as="script"><link rel="prefetch" href="/assets/index.html-a4e0f270.js" as="script"><link rel="prefetch" href="/assets/hexo-circle-of-friends.html-dd98c0e9.js" as="script"><link rel="prefetch" href="/assets/introduction.html-f2277123.js" as="script"><link rel="prefetch" href="/assets/page-configuration.html-55aab339.js" as="script"><link rel="prefetch" href="/assets/quick-start.html-1bdc36bd.js" as="script"><link rel="prefetch" href="/assets/404.html-06ea44ff.js" as="script"><link rel="prefetch" href="/assets/photoswipe.esm-5794cde2.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><!----><!----><!--]--></div>
+    <script type="module" src="/assets/app-076754c4.js" defer></script>
+  </body>
+</html>
