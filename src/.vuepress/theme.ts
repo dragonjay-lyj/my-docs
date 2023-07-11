@@ -57,18 +57,6 @@ export default hopeTheme({
     rss: true,
   },
 
-  autoCatalog: {
-
-  },
-
-  components: {
-
-  },
-
-  readingTime: {
-
-  },
-
   sitemap: {
 
   },

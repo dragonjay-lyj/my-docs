@@ -37,15 +37,6 @@ export default defineUserConfig({
       // 在这里放置其他选项
       // ...
     }),
-    autoCatalogPlugin({
-      //插件选项
-    }),
-    componentsPlugin({
-      
-    }),
-    readingTimePlugin({
-      // 你的选项
-    }),
     sitemapPlugin({
       hostname: "docs.dragonjay.top",
     }),
