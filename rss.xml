@@ -1,0 +1,1505 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://docs.dragonjay.top/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <atom:link href="https://docs.dragonjay.top/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>Docs Demo</title>
+    <link>https://docs.dragonjay.top/</link>
+    <description>A docs demo for vuepress-theme-hope</description>
+    <language>en-US</language>
+    <pubDate>Tue, 11 Jul 2023 04:29:41 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Jul 2023 04:29:41 GMT</lastBuildDate>
+    <generator>vuepress-plugin-feed2</generator>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>hexo-circle-of-friend Back-end deployment</title>
+      <link>https://docs.dragonjay.top/hexo-circle-of-friends.html</link>
+      <guid>https://docs.dragonjay.top/hexo-circle-of-friends.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">hexo-circle-of-friend Back-end deployment</source>
+      <description>Where github is cloud deployment (serverless deployment) github deployment Be careful not to change the repository name when you fork github+sqlite deployment This is the defaul...</description>
+      <pubDate>Tue, 11 Jul 2023 03:32:23 GMT</pubDate>
+      <content:encoded><![CDATA[<h1> Back-end deployment</h1>
+<p>Where github is cloud deployment (serverless deployment)</p>
+<h2> github deployment</h2>
+<blockquote>
+<p><strong>Be careful</strong> not to change the repository name <strong>when you fork</strong></p>
+</blockquote>
+<h3> github+sqlite deployment</h3>
+<p>This is the default deployment i.e.: github+sqlite+vercel</p>
+<p>Deployment Methods:</p>
+<p>The project repository for fork Friendlink Friendship Circle, address:<a href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank" rel="noopener noreferrer">https://github.com/Rock-Candy-Tea/hexo-circle-of-friends</a></p>
+<p>Edit the <code>/hexo_circle_of_friends/fc_settings.yaml</code> file with the following configuration changes:</p>
+<div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>Then click on the rope's<code>Settings--&gt;Secrets--&gt;New repository secret</code></p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/QQ图片20220205080305.png" alt="QQ图片20220205080305"></p>
+<p>Add 4 environment variables secret:</p>
+<ul>
+<li><code>GH_NAME</code>：The github name, which is your username</li>
+<li><code>GH_EMAIL</code>：github email, fill in the email you registered github</li>
+<li><code>GH_TOKEN</code>：github access token, to get it, please refer to <a href="https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank" rel="noopener noreferrer">official documentation</a>，Where <code>Select scopes</code> selects <code>repo</code> and <code>workflow</code>.</li>
+<li><code>STORAGE_TYPE</code>：Storage method, fill in <code>sqlite</code>.</li>
+</ul>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008230906574.png" alt="image-20221008230906574"></p>
+<p>When the configuration is complete, it should look like the following:</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221009000607317.png" alt="image-20221009000607317"></p>
+<p>Then click on the rope's<code>setting--&gt;Actions--&gt;General--&gt;check Read and write permissions--&gt;Save</code></p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/workflow_permissions.png" alt=""></p>
+<p>Go to <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">vercel official website</a>，Create an account directly with github and bind it with your cell phone number.</p>
+<p>Click <code>New Project</code> to create a new project</p>
+<p>Find <code>Import Git Repository</code> and you should see the repository you just <code>forked</code>, click <code>Import</code>.</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/QQ截图20220205082743.png" alt="QQ截图20220205082743"></p>
+<p>Then click <code>Deploy</code> and go back to the home page, wait a while and the deployment should complete.</p>
+<p>To add vercel environment variables, go to the home page of the project you just created and click <code>Settings--&gt;Environment Variables</code>.</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008231737297.png" alt="image-20221008231737297"></p>
+<p>Same as the previous secret, add <code>GH_NAME</code>, <code>GH_EMAIL</code>, <code>GH_TOKEN</code>, in addition to <code>VERCEL_ACCESS_TOKEN</code>, obtained as follows:</p>
+<p>Click <code>Settings--&gt;Tokens--&gt;Create</code> in the upper right corner of the vercel page.</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008231925321.png" alt="image-20221008231925321"></p>
+<p>After entering a random name, click <code>CREATE TOKEN</code>, copy the generated token and add it to the vercel environment variable</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008232056360.png" alt="image-20221008232056360"></p>
+<p>When the addition is complete, it should look as shown below:</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008232407601.png" alt="image-20221008232407601"></p>
+<p>Next, go back to github and enable github action for the repository after <code>fork</code> and click on the<code>Actions--&gt;I understand my workflows, go ahead and enable them</code></p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/QQ截图20220205081120.png" alt="QQ截图20220205081120"></p>
+<p>After that click <code>update-friends-posts</code> and enable <code>workflow</code></p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/QQ截图20220205081424.png" alt="QQ截图20220205081424"></p>
+<p>Then click <code>Run workflow---&gt;Run workflow</code> to run it for the first time.</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/image-20221008232746973.png" alt="image-20221008232746973"></p>
+<p>After waiting for the run to finish, the repository should upload <code>data.db</code> and the vercel should be updated synchronously.</p>
+<p>Go to vercel and find the address under <code>DOMAINS</code> in the project, for example:<a href="https://hexo-friendcircle4-api.vercel.app%2C/" target="_blank" rel="noopener noreferrer">https://hexo-friendcircle4-api.vercel.app，</a> Splicing <code>/all</code> after this address to try to access it, and the data appearing means that the configuration was successful, and this address is the api address needed by the front-end.</p>
+<p><img src="https://fcircle-doc.yyyzyyyz.cn/QQ截图20220205083633.png" alt="QQ截图20220205083633"></p>
+<p>At this point, the back-end part of the build is complete.</p>
+<ul>
+<li>
+<p>If using sqlite, the secret that needs to be added to the repository is: <code>STORAGE_TYPE</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code>, <code>GH_TOKEN</code>, where <code>STORAGE_TYPE</code> has the value <code>sqlite</code>.</p>
+</li>
+<li>
+<p>If using leancloud, the secret that needs to be added to the repository is: <code>STORAGE_TYPE</code>, <code>APPID</code>, <code>APPKEY</code>, where <code>STORAGE_TYPE</code> has the value <code>leancloud</code>.</p>
+</li>
+<li>
+<p>If mysql is used, the secret that needs to be added to the repository is <code>STORAGE_TYPE</code>, <code>MYSQL_USERNAME</code>, <code>MYSQL_PASSWORD</code>, <code>MYSQL_IP</code>, <code>MYSQL_PORT</code>, <code>MYSQL_DB</code>, where <code>STORAGE_TYPE</code> has the value <code>mysql</code>.</p>
+</li>
+<li>
+<p>If using mongodb, the secret that needs to be added to the repository is: <code>STORAGE_TYPE</code>, <code>MONGODB_URI</code>, where <code>STORAGE_TYPE</code> has the value <code>mongodb</code>.</p>
+</li>
+</ul>
+<p>Once the github environment variables are set, you also need to set the vercel environment variables, where <code>VERCEL_ACCESS_TOKEN</code>, <code>GH_TOKEN</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code> must be added to provide access to the backend administration, again depending on how you store it:</p>
+<ul>
+<li>If using sqlite, the environment variables that vercel needs to add are <code>VERCEL_ACCESS_TOKEN</code>, <code>GH_TOKEN</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code>.</li>
+<li>If using leancloud, the environment variables that vercel needs to add are: <code>VERCEL_ACCESS_TOKEN</code>, <code>GH_TOKEN</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code>, <code>APPID</code>, <code>APPKEY</code>.</li>
+<li>If using mysql, the environment variables that vercel needs to add are: <code>VERCEL_ACCESS_TOKEN</code>, <code>GH_TOKEN</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code>, <code>MYSQL_USERNAME</code>, <code>MYSQL_PASSWORD</code>, <code>MYSQL_IP</code>, <code>MYSQL_PORT</code>, <code>MYSQL_DB</code>.</li>
+<li>If using mongodb, the environment variables that vercel needs to add are <code>VERCEL_ACCESS_TOKEN</code>, <code>GH_TOKEN</code>, <code>GH_NAME</code>, <code>GH_EMAIL</code>, <code>MONGODB_URI</code>.</li>
+</ul>
+]]></content:encoded>
+      <enclosure url="https://fcircle-doc.yyyzyyyz.cn/QQ%E5%9B%BE%E7%89%8720220205080305.png" type="image/png"/>
+    </item>
+    <item>
+      <title>introduction</title>
+      <link>https://docs.dragonjay.top/introduction.html</link>
+      <guid>https://docs.dragonjay.top/introduction.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">introduction</source>
+      <description>Requirements Installing Hexo is quite easy and only requires the following beforehand: Node.js (http://nodejs.org/) (Should be at least Node.js 10.13, recommends 18.0 or higher)...</description>
+      <pubDate>Tue, 11 Jul 2023 03:32:23 GMT</pubDate>
+      <content:encoded><![CDATA[<h3> Requirements</h3>
+<p>Installing Hexo is quite easy and only requires the following beforehand:</p>
+<ul>
+<li><a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js</a> (Should be at least Node.js 10.13, recommends 18.0 or higher)</li>
+<li><a href="http://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a></li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>(Optionally, you can also edit directly on Github)</li>
+</ul>
+<p><a href="https://postimg.cc/gLKccHqj" target="_blank" rel="noopener noreferrer"><img src="https://i.postimg.cc/0jTzftzY/nodejs-org-en-download.png" alt="nodejs-org-en-download.png"></a>
+<a href="https://postimg.cc/gLwbX9hx" target="_blank" rel="noopener noreferrer"><img src="https://i.postimg.cc/d36sfwtj/git-scm-com-downloads.png" alt="git-scm-com-downloads.png"></a>
+<a href="https://postimg.cc/F1qVjtch" target="_blank" rel="noopener noreferrer"><img src="https://i.postimg.cc/HsWv1dk8/code-visualstudio-com.png" alt="code-visualstudio-com.png"></a></p>
+<h3> Install Git</h3>
+<ul>
+<li>Windows: Download &amp; install <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer">git</a>.</li>
+<li>Mac: Install it with <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">Homebrew</a>, <a href="http://www.macports.org/" target="_blank" rel="noopener noreferrer">MacPorts</a> or <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener noreferrer">installer</a>.</li>
+<li>Linux (Ubuntu, Debian): <code>sudo apt-get install git-core</code></li>
+<li>Linux (Fedora, Red Hat, CentOS): <code>sudo yum install git-core</code></li>
+</ul>
+<blockquote>
+<p><strong>For Mac users</strong></p>
+<p>You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to <strong>Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install</strong> to install command line tools.</p>
+</blockquote>
+<h3> Install Node.js</h3>
+<p>Node.js provides <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">official installer</a> for most platforms.</p>
+<p>Alternative installation methods:</p>
+<ul>
+<li>Windows: Install it with <a href="https://github.com/jasongin/nvs/" target="_blank" rel="noopener noreferrer">nvs</a> (recommended) or <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener noreferrer">nvm</a>.</li>
+<li>Mac: Install it with <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">Homebrew</a> or <a href="http://www.macports.org/" target="_blank" rel="noopener noreferrer">MacPorts</a>.</li>
+<li>Linux (DEB/RPM-based): Install it with <a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener noreferrer">NodeSource</a>.</li>
+<li>Others: Install it through respective package manager. Refer to <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="noopener noreferrer">the guide</a> provided by Node.js.</li>
+</ul>
+<p>nvs is also recommended for Mac and Linux to avoid possible permission issue.</p>
+<blockquote>
+<p><strong>Windows</strong></p>
+<p>If you use the official installer, make sure <strong>Add to PATH</strong> is checked (it’s checked by default).</p>
+</blockquote>
+<blockquote>
+<p><strong>Mac / Linux</strong></p>
+<p>If you encounter <code>EACCES</code> permission error when trying to install Hexo, please follow <a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank" rel="noopener noreferrer">the workaround</a> provided by npmjs; overriding with root/sudo is highly discouraged.</p>
+</blockquote>
+<blockquote>
+<p><strong>Linux</strong></p>
+<p>If you installed Node.js using Snap, you may need to manually run <code>npm install</code> in the target folder when <a href="https://hexo.io/docs/commands#init" target="_blank" rel="noopener noreferrer">initializing</a> a blog.</p>
+</blockquote>
+<h3> Install Hexo</h3>
+<p>Once all the requirements are installed, you can install Hexo with npm:</p>
+<p>$ npm install -g hexo-cli</p>
+<h3> Advanced installation and usage</h3>
+<p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
+<p>$ npm install hexo</p>
+<p>Once installed, you can run Hexo in two ways:</p>
+<ol>
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
+</ol>
+<p>echo 'PATH="$PATH:./node_modules/.bin"' &gt;&gt; ~/.profile</p>
+<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
+<p>Once Hexo is installed, run the following commands to initialize Hexo in the target <code>&lt;folder&gt;</code>.</p>
+<p>$ hexo init foldername
+$ cd foldername<br>
+$ npm install</p>
+<p>Once initialized, here’s what your project folder will look like:</p>
+<p>.<br>
+├── _config.yml<br>
+├── package.json<br>
+├── scaffolds<br>
+├── source<br>
+|   ├── _drafts<br>
+|   └── _posts<br>
+└── themes</p>
+<h3> _config.yml</h3>
+<p>Site configuration file. You can configure most settings here.</p>
+<h3> source</h3>
+<p>Source folder. This is where you put your site’s content. Hexo ignores hidden files and files or folders whose names are prefixed with <code>_</code> (underscore) - except the <code>_posts</code> folder. Renderable files (e.g. Markdown, HTML) will be processed and put into the <code>public</code> folder, while other files will simply be copied.</p>
+<h3> themes</h3>
+<p>Theme folder. Hexo generates a static website by combining the site contents with the theme.</p>
+<h2> Future</h2>
+<p>simple but not simplistic</p>
+<p><img src="https://img02.anheyu.com/adminuploads/1/2023/04/12/64367c8fdcc7f.webp" alt="Anzhiyu"></p>
+<h2> Contact me</h2>
+<p>TG: <a href="https://t.me/Neil1Bowman" target="_blank" rel="noopener noreferrer">Neil Bowman</a></p>
+<h2> journey</h2>
+<p><a href="https://github.com/DragonJay666/hexo-theme-anzhiyu-en" target="_blank" rel="noopener noreferrer">hexo-theme-anzhiyu-en</a> It is based on hexo-theme-anzhiyu.</p>
+]]></content:encoded>
+      <enclosure url="https://i.postimg.cc/0jTzftzY/nodejs-org-en-download.png" type="image/png"/>
+    </item>
+    <item>
+      <title>Page Configuration</title>
+      <link>https://docs.dragonjay.top/page-configuration.html</link>
+      <guid>https://docs.dragonjay.top/page-configuration.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">Page Configuration</source>
+      <description>Basic understanding of Front-matter The Front-matter is the --- separated area at the top of the markdown file that specifies the variables for individual files. These are subdi...</description>
+      <pubDate>Tue, 11 Jul 2023 03:32:23 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> Basic understanding of Front-matter</h2>
+<p>The <code>Front-matter</code> is the <code>---</code> separated area at the top of the <code>markdown</code> file that specifies the variables for individual files.</p>
+<p>These are subdivided into two types</p>
+<ol>
+<li>Page Front-matter for page configuration</li>
+<li>Post Front-matter for article page configuration</li>
+</ol>
+<div class="hint-container info">
+<p class="hint-container-title">tip</p>
+<p>If you are marking optional parameters, you can add as many as you want without writing them all in markdown.</p>
+</div>
+<p>::: tabs</p>
+<p>@tab:active Page Front-matter</p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>spelling</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>[Required] Page Title</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Required] Page creation date</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Necessary】Tag, Category, About, Music Gallery, Links, Albums, Album Details, Circle of Friends, Instant Page need to be configured.</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>[Optional] Page update date</td>
+</tr>
+<tr>
+<td>description</td>
+<td>[Optional] Page Description</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>[Optional] Page Keywords</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>[Optional] Show page comment module (default true)</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>[Optional] Picture at the top of the page</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>[Optional] Show mathjax (required when per_page: false is set for mathjax, default false)</td>
+</tr>
+<tr>
+<td>katex</td>
+<td>[Optional] Show katex (only required when per_page: false is set for katex, default false)</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>[Optional] Show sidebar (default true)</td>
+</tr>
+<tr>
+<td>aplayer</td>
+<td>Optional] Load aplayer's js and css on the desired page, please refer to the article below for music configuration.</td>
+</tr>
+<tr>
+<td>highlight_shrink</td>
+<td>[Optional] Configure whether the code box is expanded (true/false) (defaults to the configuration of highlight_shrink in the settings)</td>
+</tr>
+</tbody>
+</table>
+<p>@tab Post Front-matter</p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>spelling</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>[Required] Article Title</td>
+</tr>
+<tr>
+<td>date</td>
+<td>[Required] Article creation date</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>[Optional] Article update date</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>[Optional] Article Tags</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>[Optional] Article Categories</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>[Optional] Article Keywords</td>
+</tr>
+<tr>
+<td>description</td>
+<td>[Optional] Article Description</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>[Optional] Image at the top of the article</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>Optional] article thumbnail(if top_img is not set, the thumbnail will be shown at the top of the article page, it can be set to false/image address/leave it blank)</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>[Optional] Show article comment module (default true)</td>
+</tr>
+<tr>
+<td>toc</td>
+<td>[Optional] Display article TOC (default is the enable configuration of toc in settings)</td>
+</tr>
+<tr>
+<td>toc_number</td>
+<td>[Optional] Display toc_number (default is the number configuration of toc in the setting)</td>
+</tr>
+<tr>
+<td>toc_style_simple</td>
+<td>[Optional] Display toc Simple Mode</td>
+</tr>
+<tr>
+<td>copyright</td>
+<td>[Optional] Show article copyright module (default is enable configuration of post_copyright in settings)</td>
+</tr>
+<tr>
+<td>copyright_author</td>
+<td>[Optional] <code>Author of article</code> in the article copyright module</td>
+</tr>
+<tr>
+<td>copyright_author_href</td>
+<td>[Optional] <code>Author of article</code> link in article copyright module</td>
+</tr>
+<tr>
+<td>copyright_url</td>
+<td>[Optional] <code>Article link</code> link for article copyright module</td>
+</tr>
+<tr>
+<td>copyright_info</td>
+<td>[Optional] Copyright notice text for article copyright module</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>[Optional] Show mathjax (required when per_page: false is set for mathjax, default false)</td>
+</tr>
+<tr>
+<td>katex</td>
+<td>[Optional] Show katex (only required when per_page: false is set for katex, default false)</td>
+</tr>
+<tr>
+<td>aplayer</td>
+<td>[Optional] Load aplayer's js and css on the desired page, see <code>Music</code> configuration below the article.</td>
+</tr>
+<tr>
+<td>highlight_shrink</td>
+<td>[Optional] Configure whether the code box is expanded (true/false) (defaults to the configuration of highlight_shrink in the settings)</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>[Optional] Show sidebar (default true)</td>
+</tr>
+<tr>
+<td>swiper_index</td>
+<td>[Optional] Home page rotator configuration index index, the smaller the number the more advanced</td>
+</tr>
+<tr>
+<td>top_group_index</td>
+<td>[Optional] Card group configuration on the right side of the home page, the smaller the number, the higher the priority.</td>
+</tr>
+<tr>
+<td>background</td>
+<td>[Optional] Article background can be configured as hexadecimal color values.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Homepage rotator configuration: <code>swiper_index</code>, the smaller the number, the higher it is.</li>
+<li>Home card configuration: <code>top_group_index</code>, the smaller the number, the higher the index</li>
+<li><code>background</code> in page, configurable as hexadecimal color value</li>
+</ol>
+<p>:::</p>
+<p>Simply configure these two fields in the <code>Front-matter</code> at the top of your post to display the rotating image and the testimonials card</p>
+<h2> tag</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You'll find the file <code>source/tags/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "tags"</code></p>
+</li>
+</ol>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>[Required] page type, must be tags</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>[Optional] Whether to display comments</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>[Optional] Whether to display the top chart</td>
+</tr>
+<tr>
+<td>orderby</td>
+<td>Optional] Sort by: random/name/length</td>
+</tr>
+<tr>
+<td>order</td>
+<td>[Optional] Sort Order： 1, asc for ascending; -1, desc for descending</td>
+</tr>
+</tbody>
+</table>
+<h2> category page</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You'll find the file <code>source/categories/index.md</code></p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "categories"</code></p>
+</li>
+</ol>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Info</p>
+<p>A customized interface exists for category pages, and this site uses a custom page display.</p>
+<details class="hint-container details"><summary>Customized Category Interface</summary>
+<ol>
+<li>First remove <code>type: "categories" from the </code>source/categories/index.md<code> file.</code></li>
+<li>Modify the <code>source/categories/index.md</code> file with your own links and text.</li>
+</ol>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+</div>
+<p><img src="https://i.postimg.cc/kghx7Wfr/localhost-5000-categories.png" alt="category page"></p>
+<h2> dynamic</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+</li>
+</ol>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ol start="3">
+<li>
+<p>You'll find the file <code>source/essay/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "essay"</code></p>
+</li>
+</ol>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="5">
+<li>To add data, create a new file <code>[blog]\source\_data\essay.yml</code>, if you don't have a <code>_data</code> folder, please create one yourself. The following is an example of the default format, open <code>[blog]\source\_data\essay.yml</code> and type:</li>
+</ol>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Theme config file to turn on comments in <code>menu</code> about and ramblings, navigation bar ramblings, note indentation!!!!</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>The images in the example data are not guaranteed to be available, so please replace them with your own links to the image beds.</p>
+</div>
+<p><img src="https://i.postimg.cc/7P3PDDmw/localhost-5000-categories-1.png" alt="dynamic"></p>
+<h2> Link Configuration</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You'll find the file <code>source/link/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "link"</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<p>Create a new file <code>[blog]\source\_data\link.yml</code>, if you don't have a <code>_data</code> folder, please create it yourself. The following is an example of the default link format (~~ I wrote the tutorial myself, it's not too much to ask for some private goods, hehehe~~). Open <code>[blog]\source\_data\link.yml</code> and type:</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>There are two effects depending on the flink_style, the options are <code>flexcard</code> or <code>anzhiyu</code>.</p>
+<p>When the number of links exceeds 50, it will be triggered to progress with the blogger board, you can configure <code>hundredSuffix:"!w120"</code>, this parameter can solve the problem of the quality of the avatar of the board of the common progress, after the configuration of the avatar of the board of the common progress will be added to the suffix.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Theme config file to turn on comments for friendlinks and friend accounts in <code>menu</code>, note the indentation!!!!</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="https://i.postimg.cc/HL1T8kYS/localhost-5000-categories.png" alt="Link Configuration"></p>
+<h2> About Page Configuration</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You'll find the file <code>source/about/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "about"</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>The theme configuration file turns on comments in <code>menu</code> about and about myself, note the indentation!!!!</p>
+</li>
+</ol>
+<p>Create a new <code>source/_data/about.yml</code> and enter the following</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>Alternative values/types</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class_name</td>
+<td>About Page</td>
+<td>[Required] Page Class</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td>[Required] Subtitle</td>
+</tr>
+<tr>
+<td>avatarImg</td>
+<td>url</td>
+<td>[Required] Avatar Link</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>[Required Author's name</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>[Required] Description</td>
+</tr>
+<tr>
+<td>aboutsiteTips</td>
+<td>object</td>
+<td>[Required] Site configuration regarding prompts</td>
+</tr>
+<tr>
+<td>aboutsiteTips.tips</td>
+<td>string</td>
+<td>[Required] Site About Prompt Text</td>
+</tr>
+<tr>
+<td>aboutsiteTips.title1</td>
+<td>string</td>
+<td>[Required] Site about the title text 1</td>
+</tr>
+<tr>
+<td>aboutsiteTips.title2</td>
+<td>string</td>
+<td>[Required] Site About Title Text 2</td>
+</tr>
+<tr>
+<td>aboutsiteTips.word</td>
+<td>list</td>
+<td>[Required] Site about title scrolling text</td>
+</tr>
+<tr>
+<td>helloAbout</td>
+<td>string</td>
+<td>[Must] hello text</td>
+</tr>
+<tr>
+<td>skillsTips</td>
+<td>object</td>
+<td>[Required] Skill Related Configurations</td>
+</tr>
+<tr>
+<td>skillsTips.tips</td>
+<td>string</td>
+<td>[Must] Skill prompt text</td>
+</tr>
+<tr>
+<td>skillsTips.title</td>
+<td>string</td>
+<td>[Required] Skill Title</td>
+</tr>
+<tr>
+<td>careers</td>
+<td>object</td>
+<td>[Required] Career-related configuration</td>
+</tr>
+<tr>
+<td>careers.tips</td>
+<td>string</td>
+<td>[Required] Career alert text</td>
+</tr>
+<tr>
+<td>careers.title</td>
+<td>string</td>
+<td>[Required] Career Title</td>
+</tr>
+<tr>
+<td>careers.item</td>
+<td>list</td>
+<td>Career item</td>
+</tr>
+<tr>
+<td>careers.img</td>
+<td>string</td>
+<td>[Must] Career Pictures</td>
+</tr>
+<tr>
+<td>statistic</td>
+<td>object</td>
+<td>[Required] Statistics-related configuration</td>
+</tr>
+<tr>
+<td>statistic.link</td>
+<td>url</td>
+<td>[Required] Statistical data button to go to the link</td>
+</tr>
+<tr>
+<td>statistic.text</td>
+<td>string</td>
+<td>[Required] Statistics button text</td>
+</tr>
+<tr>
+<td>map</td>
+<td>object</td>
+<td>[Required] Map Related Configurations</td>
+</tr>
+<tr>
+<td>map.title</td>
+<td>string</td>
+<td>[Required] Map Title</td>
+</tr>
+<tr>
+<td>map.StrengthenTitle</td>
+<td>string</td>
+<td>[Required] Map header</td>
+</tr>
+<tr>
+<td>map.background</td>
+<td>url</td>
+<td>[Must] Map Light Mode Background</td>
+</tr>
+<tr>
+<td>map.backgroundDark</td>
+<td>url</td>
+<td>[Must] Map Dark Mode Background</td>
+</tr>
+<tr>
+<td>selfInfo</td>
+<td>object</td>
+<td>[Required] Configuration of author-related information</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoTips1</td>
+<td>string</td>
+<td>[Required] Author's prompt text 1</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoContentYear</td>
+<td>number</td>
+<td>[Required] Author's birthday year</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoTips2</td>
+<td>string</td>
+<td>[Required] Author's prompt text 2</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoContent2</td>
+<td>string</td>
+<td>[Required] Author-related content 2</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoTips3</td>
+<td>string</td>
+<td>[Required] Author's prompt text 3</td>
+</tr>
+<tr>
+<td>selfInfo.selfInfoContent3</td>
+<td>string</td>
+<td>[Required] Author-related content 3</td>
+</tr>
+<tr>
+<td>personalities</td>
+<td>object</td>
+<td>[Required] Author character related configuration</td>
+</tr>
+<tr>
+<td>personalities.author_name</td>
+<td>string</td>
+<td>[Required] Author's personality name</td>
+</tr>
+<tr>
+<td>personalities.personality_type</td>
+<td>string</td>
+<td>[Required] Author's personality type</td>
+</tr>
+<tr>
+<td>personalities.photo_url</td>
+<td>url</td>
+<td>[Must] Author Selfie Pictures</td>
+</tr>
+<tr>
+<td>personalities.personality_img</td>
+<td>url</td>
+<td>[Required] Pictures of author's personality expressions</td>
+</tr>
+<tr>
+<td>personalities.name_url</td>
+<td>url</td>
+<td>[Required] Click on the personality to jump to the link</td>
+</tr>
+<tr>
+<td>maxim</td>
+<td>object</td>
+<td>[Must] Motto Related Configurations</td>
+</tr>
+<tr>
+<td>maxim.maxim_tips</td>
+<td>string</td>
+<td>[Must] Motto Related Prompt Text</td>
+</tr>
+<tr>
+<td>maxim.maxim_top</td>
+<td>string</td>
+<td>[Must] Motto Related Top Text</td>
+</tr>
+<tr>
+<td>maxim.maxim_bottom</td>
+<td>string</td>
+<td>[Must] Motto Related Bottom Text</td>
+</tr>
+<tr>
+<td>buff</td>
+<td>object</td>
+<td>[Required] Specialty Related Configurations</td>
+</tr>
+<tr>
+<td>buff.buff_tips</td>
+<td>string</td>
+<td>[Required] Specialty-related prompt text</td>
+</tr>
+<tr>
+<td>buff.buff_top</td>
+<td>string</td>
+<td>[Required] Specialty Related Top Text</td>
+</tr>
+<tr>
+<td>buff.buff_bottom</td>
+<td>string</td>
+<td>[Required] Specialty Related Bottom Text</td>
+</tr>
+<tr>
+<td>game</td>
+<td>object</td>
+<td>[Required] Hobby game related configuration</td>
+</tr>
+<tr>
+<td>game.game_tips</td>
+<td>string</td>
+<td>[Required] Hobby Game Tip Text</td>
+</tr>
+<tr>
+<td>game.game_title</td>
+<td>string</td>
+<td>[Required] Hobby Game Title</td>
+</tr>
+<tr>
+<td>game.game_uid</td>
+<td>string</td>
+<td>[Must] Hobby game uid</td>
+</tr>
+<tr>
+<td>game.game_bg</td>
+<td>url</td>
+<td>[Must] Hobby game background</td>
+</tr>
+<tr>
+<td>comic</td>
+<td>object</td>
+<td>Required] 5 pieces of data are required for the configuration of animes.</td>
+</tr>
+<tr>
+<td>comic.comic_tips</td>
+<td>string</td>
+<td>[Required] Cue text related to the animes</td>
+</tr>
+<tr>
+<td>comic.comic_title</td>
+<td>string</td>
+<td>[Required] animes Related Titles</td>
+</tr>
+<tr>
+<td>comic.comic_list</td>
+<td>list</td>
+<td>[Must] animes related list</td>
+</tr>
+<tr>
+<td>comic.comic_list.name</td>
+<td>string</td>
+<td>[Required] animes item name</td>
+</tr>
+<tr>
+<td>comic.comic_list.href</td>
+<td>url</td>
+<td>[Must] animes item link</td>
+</tr>
+<tr>
+<td>comic.comic_list.cover</td>
+<td>url</td>
+<td>[Required] animes item's cover</td>
+</tr>
+<tr>
+<td>like</td>
+<td>object</td>
+<td>[Must] Focus on preference-related allocations</td>
+</tr>
+<tr>
+<td>like.like_tips</td>
+<td>string</td>
+<td>[Required] Focus on Preference Configuration Prompt Text</td>
+</tr>
+<tr>
+<td>like.like_title</td>
+<td>string</td>
+<td>[Must] Focus on preference allocation headings</td>
+</tr>
+<tr>
+<td>like.like_bg</td>
+<td>url</td>
+<td>[Must] Focus on preferred allocation context</td>
+</tr>
+<tr>
+<td>like.like_bottom</td>
+<td>string</td>
+<td>[Mandatory] Follow the text at the bottom of the preference configuration</td>
+</tr>
+<tr>
+<td>music</td>
+<td>object</td>
+<td>[Required] Music preference related configuration</td>
+</tr>
+<tr>
+<td>music.music_tips</td>
+<td>string</td>
+<td>[Required] Music preference cue text</td>
+</tr>
+<tr>
+<td>music.music_title</td>
+<td>string</td>
+<td>[Required] Music Preferences Title</td>
+</tr>
+<tr>
+<td>music.music_bg</td>
+<td>url</td>
+<td>[Required] Music Preference Background</td>
+</tr>
+<tr>
+<td>music.music_link</td>
+<td>url</td>
+<td>[Required] Music Preference Button Link</td>
+</tr>
+<tr>
+<td>reward_list</td>
+<td>object</td>
+<td>Optional] Reward related configuration, if not configured there will be no reward module.</td>
+</tr>
+<tr>
+<td>reward_list.name</td>
+<td>string</td>
+<td>[Required] Reward item name</td>
+</tr>
+<tr>
+<td>reward_list.amount</td>
+<td>number</td>
+<td>[Required] Reward item amount</td>
+</tr>
+<tr>
+<td>reward_list.datatime</td>
+<td>Date</td>
+<td>[Must] Reward item Time</td>
+</tr>
+<tr>
+<td>reward_list.suffix</td>
+<td>string/RMB</td>
+<td>[Optional] Reward item suffix（default RMB）</td>
+</tr>
+<tr>
+<td>extra</td>
+<td>boolean/false</td>
+<td>The [Required] development field indicates that the content of the extra module can be developed by modifying the theme <code>themes/anzhiyu/layout/includes/anzhiyu/about-extra.pug</code>, and the pug content will be introduced after modifying this field to true.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.postimg.cc/DwpZqv41/localhost-5000-about.png" alt="关于页"></p>
+<h2> Configuring the album page</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You will find the file <code>source/album/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "album"</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Need to modify the top image you can modify the link in the <code>top_background</code> field, theme version needs to be <code>1.4.1</code> or above.</p>
+</li>
+<li>
+<p>Theme config file to turn on comments for my and album sets in <code>menu</code>, note the indentation!!!!</p>
+</li>
+</ol>
+<p>Create a new file <code>[blog]\source\_data\album.yml</code>, if you don't have a <code>_data</code> folder, please create your own. Open <code>[blog]\source\_data\album.yml</code> and type:</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>Alternative values/types</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class_name</td>
+<td>string</td>
+<td>[Required] Page Class</td>
+</tr>
+<tr>
+<td>path_name</td>
+<td>url</td>
+<td>[Required] Current Album Path</td>
+</tr>
+<tr>
+<td>type</td>
+<td>number</td>
+<td>[Required] Current album page style type</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>[Required] Current Album Description</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>url</td>
+<td>[Must] Current Album Cover Pictures</td>
+</tr>
+<tr>
+<td>top_background</td>
+<td>url</td>
+<td>Optional] The current top banner image of the album, you can not fill in, the theme version needs to be 1.4.1 or above.</td>
+</tr>
+<tr>
+<td>rowHeight</td>
+<td>number</td>
+<td>[Optional] Only valid when type is 2, current album rowHeight</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>number</td>
+<td>[Optional] Valid only when type is 2, the number of current albums loaded lazily at once.</td>
+</tr>
+<tr>
+<td>lazyload</td>
+<td>boolean</td>
+<td>[Optional] Only valid when type is 2, if or not lazyload is enabled in current album lazyload, default lazyload is scrolling lazyload, lazyload can not be turned off when type is 1.</td>
+</tr>
+<tr>
+<td>btnLazyload</td>
+<td>boolean</td>
+<td>[Optional] Only valid when type is 2 and lazyload is on, the current album lazyload lazy loading method, the default is scrolling lazy loading, after turning on this option, it is button click lazy loading.</td>
+</tr>
+<tr>
+<td>album_list</td>
+<td>list</td>
+<td>[Must] List of pictures in the current album</td>
+</tr>
+<tr>
+<td>url</td>
+<td>url</td>
+<td>[Optional] Valid only when type is 2. Remote json data can be loaded.</td>
+</tr>
+<tr>
+<td>album_list.date</td>
+<td>date</td>
+<td>[Required] Current picture creation time</td>
+</tr>
+<tr>
+<td>album_list.content</td>
+<td>string</td>
+<td>[Required] Content of the current picture description</td>
+</tr>
+<tr>
+<td>album_list.image</td>
+<td>list</td>
+<td>[Must] Current picture set, can be more than one</td>
+</tr>
+<tr>
+<td>album_list.from</td>
+<td>string</td>
+<td>[Optional] The creator of the current picture, if not filled in, it will not be displayed.</td>
+</tr>
+<tr>
+<td>album_list.address</td>
+<td>string</td>
+<td>[Required] Current Picture Address</td>
+</tr>
+</tbody>
+</table>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>Note that the images in the example data are not guaranteed to be available.</p>
+</div>
+<p>Since the album page needs many pages, write the path <code>path_name</code> by itself when writing the data, there are two <code>path_name</code>s in the example data, so you need to create two more pages</p>
+<p>Note that the newly created page must match <code>path_name</code>.</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>You will find the files <code>source/dailyPhoto/index.md</code> and <code>source/wordScenery/index.md</code>, which are the album collection detail pages.</p>
+<p>Then the content is the following, need to add <code>type: "album_detail" to the detail page</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code>Remote load json sample data</code></p>
+<div class="language-json line-numbers-mode" data-ext="json"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>::: tabs#album page type</p>
+<p>@tab album page</p>
+<p><img src="https://i.postimg.cc/4NWrWmf2/localhost-5000-categories.png" alt="相册页"></p>
+<p>Album page type: 1 Style</p>
+<p><img src="https://i.postimg.cc/rFg9BPPQ/localhost-5000-album.png" alt="相册页"></p>
+<p>:::</p>
+<h2> Circle of Friends Page Configuration</h2>
+<blockquote>
+<p>Friendly Link Circle of Friends<a href="https://docs.dragonjay.top/hexo-circle-of-friends" target="_blank" rel="noopener noreferrer">Backend Deployment Documentation</a>
+Project address: <a href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank" rel="noopener noreferrer">https://github.com/Rock-Candy-Tea/hexo-circle-of-friends</a></p>
+</blockquote>
+<p>Please note that there is a certain degree of difficulty in the deployment of the circle of friends, the blogger uses the server deployment, after pulling the back-end code can be changed to the default value within the code to their own site, the theme changed to common2, note that you must use <code>common2</code>, otherwise you will not be able to pull their own friend links.</p>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Open <code>[blog]\source\fcircle\index.md</code>, add a line <code>type: 'fcircle'</code>.</p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Theme config file to turn on comments for friendlinks and friendzones in <code>menu</code>, navigation bar friendzones, note the indentation!!!!</p>
+<p>Enable <code>friends_vue.enable</code> in the theme config file, set <a href="https://docs.dragonjay.top/hexo-circle-of-friends" target="_blank" rel="noopener noreferrer">friends_vue_backend_address</a> and top module background by yourself, and watch out for indentation!!!!</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>Note that <code>common2</code> is required for back-end crawling.</p>
+</div>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>Alternative values/types</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>boolean</td>
+<td>[Required] Whether to enable</td>
+</tr>
+<tr>
+<td>vue_js</td>
+<td>url</td>
+<td>[Required] url after building the front-end of the circle of friends</td>
+</tr>
+<tr>
+<td>apiurl</td>
+<td>string</td>
+<td>[Required] Circle of Friends back-end url</td>
+</tr>
+<tr>
+<td>top_background</td>
+<td>url</td>
+<td>【Optional】Friends circle top background image</td>
+</tr>
+</tbody>
+</table>
+<p>Here is the configuration of this site</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Where the <code>vue_js</code> parameter, which replaces <code>https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/js/friends_vue/index.js</code> in the
+<code>friends.dragonjay.top</code> to your backend url and then use the</p>
+<p>Front-end project address:<a href="https://github.com/anzhiyu-c/hexo-circle-of-friends-front/" target="_blank" rel="noopener noreferrer">hexo-circle-of-friends-front</a>，You can also download the project by yourself, change the url variable <code>friends.anheyu.com</code> in the code to your own, and then run <code>npm run build</code> to build it.</p>
+<p>Theme config file to turn on comments in <code>menu</code> for Friendlinks and Circle of Friends, note the indentation!!!!</p>
+<h2> Music Hall Page Configuration</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You'll find the file <code>source/music/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "music"</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Create a new <code>source/json/music.json</code>, this json is the song list data for the toggle song list button.</p>
+</li>
+</ol>
+<div class="language-json line-numbers-mode" data-ext="json"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="6">
+<li>
+<p>Add the following configuration to the hexo configuration file <code>_config.yml</code>, note that it is not the theme configuration file</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>The theme configuration file turns on the comments for my and music gallery in <code>menu</code>, note the indentation!!!!</p>
+</li>
+</ol>
+<blockquote>
+<p>How do I change the default song list?</p>
+</blockquote>
+<p>Change the path of music library in <code>menu</code> to the following format <code>/music/?id=1708664797&amp;server=tencent</code>, support <code>id</code> and <code>server</code> parameters.</p>
+<p><img src="https://i.postimg.cc/C5BbRbTt/localhost-5000-music.png" alt="Music Hall Page"></p>
+<h2> 404 Page</h2>
+<p>The theme has a simple 404 page built in, which can be turned on in the settings.</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>When previewing locally, you will not get a 404 page when you visit the site with the error.
+For local preview, please visit http://localhost:4000/404.html</p>
+</div>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="https://i.postimg.cc/qBcTYqtc/localhost-5000-404-html.png" alt="404 Page"></p>
+<h2> Message Board Page</h2>
+<p>In the blog root directory run</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>In the site configuration file <code>_config.yml</code>, add the following configuration</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="https://i.postimg.cc/fL2xTDy8/localhost-5000-404-html.png" alt="# Message Board"></p>
+<h2> My Equipment Page</h2>
+<ol>
+<li>
+<p>Go to your Hexo blog's root directory</p>
+</li>
+<li>
+<p>Open a terminal in the Hexo blog root directory <code>[blog]</code> and type</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>You will find the file <code>source/equipment/index.md</code>.</p>
+</li>
+<li>
+<p>Modify this file:
+Remember to add <code>type: "equipment"</code></p>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>To add data, create a new file <code>[blog]\source\_data\equipment.yml</code>, if you don't have a <code>_data</code> folder, please create one yourself. The following is an example of the default format, open <code>[blog]\source\_data\equipment.yml</code> and type:</p>
+</li>
+</ol>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Theme config file to turn on the comment in <code>menu</code> about and my gear, navigation bar my gear, note the indentation!!!!</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>The images in the example data are not guaranteed to be available, so please replace them with your own links to your own graphic beds.</p>
+</div>
+]]></content:encoded>
+      <enclosure url="https://i.postimg.cc/kghx7Wfr/localhost-5000-categories.png" type="image/png"/>
+    </item>
+    <item>
+      <title>Getting Started</title>
+      <link>https://docs.dragonjay.top/quick-start.html</link>
+      <guid>https://docs.dragonjay.top/quick-start.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">Getting Started</source>
+      <description>💻 Installation Install the latest version in the blog root directory [recommended Upgrade method：In the theme directory, run Or just delete the theme/anzhiyu folder and reinsta...</description>
+      <pubDate>Tue, 11 Jul 2023 03:32:23 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 💻 Installation</h2>
+<p>Install the latest version in the blog root directory [recommended</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p><strong>Upgrade method</strong>：In the theme directory, run</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Or just delete the <strong>theme/anzhiyu</strong> folder and reinstall it.</p>
+<blockquote>
+<p>To upgrade: In the Hexo root directory, run</p>
+</blockquote>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>:::</p>
+<h2> ⚙ Application Topics</h2>
+<p>Modify the hexo configuration file <code>_config.yml</code> and change the theme to <code>anzhiyu</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> Installing the pug and stylus rendering plug-ins</h2>
+<div class="language-powershell line-numbers-mode" data-ext="powershell"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> Better configuration for upgrading themes</h2>
+<ul>
+<li>
+<p>macos/linux
+Run it in the blog root directory</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>windows
+Copy the file <code>/themes/anzhiyu/_config.yml</code> to the hexo root directory and rename it <code>_config.anzhiyu.yml</code>.</p>
+</li>
+</ul>
+<p>Configurations in <code>_config.anzhiyu.yml</code> have a higher priority than <code>_config.yml</code>.</p>
+<h2> Start hexo locally</h2>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>At this point it will be in to see the results.</p>
+<p><img src="https://i.postimg.cc/s2km1ZC1/localhost-5000.png" alt=""></p>
+<h2> Problems?</h2>
+<p>Can be submitted at the github <a href="https://github.com/DragonJay666/hexo-theme-anzhiyu-en/issues" target="_blank" rel="noopener noreferrer">issues</a></p>
+<h2> Thematic design</h2>
+<p><a href="https://github.com/zhheo" target="_blank" rel="noopener noreferrer">@张洪 Heo</a></p>
+]]></content:encoded>
+      <enclosure url="https://i.postimg.cc/s2km1ZC1/localhost-5000.png" type="image/png"/>
+    </item>
+    <item>
+      <title>Slide page</title>
+      <link>https://docs.dragonjay.top/slides.html</link>
+      <guid>https://docs.dragonjay.top/slides.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">Slide page</source>
+      <description>slidestart Slide Demo A simple slide demo and useful hints. By Mr.Hope. Please scroll mouse wheel down to the next slide Marking Slides 👇 (#/1/1) -- Marking Slides Use --- to m...</description>
+      <pubDate>Tue, 11 Jul 2023 03:32:23 GMT</pubDate>
+      <content:encoded><![CDATA[<!-- markdownlint-disable MD024 MD033 MD051 -->
+<p>@slidestart</p>
+<!-- .slide: data-transition="slide" -->
+<h2> Slide Demo</h2>
+<!-- .element: class="r-fit-text" -->
+<p>A simple slide demo and useful hints.</p>
+<!-- .element: class="r-fit-text" -->
+<blockquote>
+<p>By Mr.Hope. Please scroll mouse wheel down to the next slide</p>
+</blockquote>
+<hr>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Marking Slides</h2>
+<!-- .element: class="r-fit-text" -->
+<p><a href="#/1/1">👇</a></p>
+<p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Marking Slides</h2>
+<!-- .element: class="r-fit-text" -->
+<p>Use <code>---</code> to mark horizontal slides</p>
+<!-- .element: class="fragment fade-in" -->
+<p>Use <code>--</code> to separate vertical slides in a horizontal slide.</p>
+<!-- .element: class="fragment fade-in" -->
+<p>Use <code>&lt;!-- .slide: ... --&gt;</code> to add attributes to slide</p>
+<!-- .element: class="fragment fade-in" -->
+<p>Use <code>&lt;!-- .element: ... --&gt;</code> to add attributes to the previous html element</p>
+<!-- .element: class="fragment fade-in" -->
+<hr>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Markdown</h2>
+<!-- .element: class="r-fit-text" -->
+<p>You can use all kinds of markup in slides.</p>
+<!-- .element: class="r-fit-text" -->
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Markdown</h2>
+<p>You can use all kinds of markup in slides.</p>
+<h3> This is a H3</h3>
+<p>Headings will transform to UPPERCASE by default.</p>
+<p>Here is paragraph with some <strong>bold</strong>, <em>italic</em>, <s>strike-through</s> text and a <a href="https://mister-hope.com" target="_blank" rel="noopener noreferrer">link</a>, and it can auto break itself so you don't need to worry the length.</p>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Markdown</h2>
+<p>You can use all kinds of markup in slides.</p>
+<p>List is <code>inline-block</code> by default.</p>
+<ul>
+<li>Item</li>
+<li>Item</li>
+<li>Item</li>
+</ul>
+<ol>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ol>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Markdown</h2>
+<p>You can use all kinds of markup in slides.</p>
+<p>Code block will get auto highlight if you enable <code>highlight</code> plugin.</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Markdown</h2>
+<p>You can use all kinds of markup in slides.</p>
+<p>You can also write math equation using tex syntax if you enable <code>math</code> plugin.</p>
+<p>$$
+J(\theta_0,\theta_1) = \sum_{i=0}
+$$</p>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Markdown</h2>
+<p>You can use all kinds of markup in slides.</p>
+<p>⚠<strong>Note</strong>: Table, hr and other nonstandard Markdown syntax is not supported.</p>
+<hr>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Layout</h2>
+<!-- .element: class="r-fit-text" -->
+<p>--</p>
+<!-- .slide: data-auto-animate  -->
+<h2> Layout</h2>
+<!-- .element: class="r-fit-text" -->
+<p>👆 The <code>r-fit-text</code> class makes text as large as possible without overflowing the slide.</p>
+<p>--</p>
+<!-- .slide: data-auto-animate  -->
+<h2> Layout</h2>
+<p><img src="/logo.svg" alt="Logo"></p>
+<!-- .element: class="r-stretch" -->
+<p>👆 The <code>r-stretch</code> class helper lets you resize an element, like an image or video, to cover the remaining vertical space in a slide.</p>
+<p>--</p>
+<!-- .slide: data-auto-animate data-background-color="rgb(70, 70, 255)" -->
+<h2> Layout</h2>
+<h3> Background</h3>
+<p>Custom background by adding <code>data-background</code> attribute to slide.</p>
+<hr>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<!-- .element: class="r-fit-text" -->
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<!-- .element: class="r-fit-text" -->
+<p>Fragments are used to highlight or incrementally reveal individual elements on a slide.</p>
+<p>Add <code>fragment</code> and animation class to element.</p>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<h3> Animation class</h3>
+<ul>
+<li><code>fade-in</code></li>
+</ul>
+<!-- .element: class="fragment fade-in" -->
+<ul>
+<li><code>fade-out</code></li>
+</ul>
+<!-- .element: class="fragment fade-out" -->
+<ul>
+<li><code>fade-up</code></li>
+</ul>
+<!-- .element: class="fragment fade-up" -->
+<!-- list break -->
+<ul>
+<li><code>fade-down</code></li>
+</ul>
+<!-- .element: class="fragment fade-down" -->
+<ul>
+<li><code>fade-left</code></li>
+</ul>
+<!-- .element: class="fragment fade-left" -->
+<ul>
+<li><code>fade-right</code></li>
+</ul>
+<!-- .element: class="fragment fade-right" -->
+<!-- list break -->
+<ul>
+<li><code>fade-in-then-out</code></li>
+</ul>
+<!-- .element: class="fragment fade-in-then-out" -->
+<ul>
+<li><code>fade-in-then-semi-out</code></li>
+</ul>
+<!-- .element: class="fragment fade-in-then-semi-out" -->
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<h3> Animation class</h3>
+<ul>
+<li><code>grow</code></li>
+</ul>
+<!-- .element: class="fragment grow" -->
+<ul>
+<li><code>shrink</code></li>
+</ul>
+<!-- .element: class="fragment shrink" -->
+<ul>
+<li><code>strike</code></li>
+</ul>
+<!-- .element: class="fragment strike" -->
+<!-- list break -->
+<ul>
+<li><code>highlight-red</code></li>
+</ul>
+<!-- .element: class="fragment highlight-red" -->
+<ul>
+<li><code>highlight-green</code></li>
+</ul>
+<!-- .element: class="fragment highlight-green" -->
+<ul>
+<li><code>highlight-blue</code></li>
+</ul>
+<!-- .element: class="fragment highlight-blue" -->
+<!-- list break -->
+<ul>
+<li><code>highlight-current-red</code></li>
+</ul>
+<!-- .element: class="fragment highlight-current-red" -->
+<ul>
+<li><code>highlight-current-green</code></li>
+</ul>
+<!-- .element: class="fragment highlight-current-green" -->
+<ul>
+<li><code>highlight-current-blue</code></li>
+</ul>
+<!-- .element: class="fragment highlight-current-blue" -->
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<h3> Multiple fragments</h3>
+<p>Multiple fragments can be applied to the same element sequentially by wrapping it</p>
+<span class="fragment fade-in">
+  <span class="fragment highlight-red">
+    <span class="fragment fade-out">
+      Fade in &gt; Turn red &gt; Fade out
+    </span>
+  </span>
+</span>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Fragment</h2>
+<h3> Order</h3>
+<p>Order can be changed using the <code>data-fragment-index</code> attribute.</p>
+<p>Multiple elements can appear at the same index.</p>
+<ul>
+<li>Appears last</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="3"-->
+<ul>
+<li>Appears second</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="2"-->
+<!-- list break -->
+<ul>
+<li>Appears first</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="1"-->
+<ul>
+<li>Appears second</li>
+</ul>
+<!-- .element: class="fragment" data-fragment-index="2"-->
+<hr>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Transition</h2>
+<!-- .element: class="r-fit-text" -->
+<p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Transition</h2>
+<!-- .element: class="r-fit-text" -->
+<p>Transition can be changed by setting the <code>transition</code> config option globally or <code>data-transition</code> attribute on slide.</p>
+<p>Possible values:</p>
+<ul>
+<li>none</li>
+<li>fade</li>
+<li>slide</li>
+</ul>
+<!-- list break -->
+<ul>
+<li>convex</li>
+<li>concave</li>
+<li>zoom</li>
+</ul>
+<p>--</p>
+<!-- .slide: data-auto-animate -->
+<h2> Transition</h2>
+<!-- .element: class="r-fit-text" -->
+<h3> Auto animate</h3>
+<p><code>data-auto-animate</code> can be added on nearby slides to make an animation on unchanged elements.</p>
+<hr>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Functions</h2>
+<!-- .element: class="r-fit-text" -->
+<p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Functions</h2>
+<!-- .element: class="r-fit-text" -->
+<h3> Code</h3>
+<p>By enabling <code>highlight</code> plugin, you can highlight code blocks.</p>
+<p>You can use <code>[a-b|c-d]</code> syntax to highlight lines by steps.</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Functions</h2>
+<!-- .element: class="r-fit-text" -->
+<h3> Overview</h3>
+<p>Press <code>Esc</code> or <code>O</code> to enter overview mode when the presentation is active</p>
+<p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Functions</h2>
+<!-- .element: class="r-fit-text" -->
+<h3> Full Screen</h3>
+<p>Press <code>F</code> or <code>F11</code> to enter fullscreen when the presentation is active</p>
+<p>--</p>
+<!-- .slide: data-transition="slide" data-auto-animate -->
+<h2> Functions</h2>
+<!-- .element: class="r-fit-text" -->
+<h3> Zoom</h3>
+<p>Hold down the <code>alt</code> key (<code>ctrl</code> in Linux) and click on any element to zoom towards it.</p>
+<p>Click again to zoom back out.</p>
+<hr>
+<!-- .element: class="r-fit-text" -->
+<h2> The End</h2>
+<p>@slideend</p>
+]]></content:encoded>
+      <enclosure url="https://docs.dragonjay.top/logo.svg" type="image/svg+xml"/>
+    </item>
+  </channel>
+</rss>
