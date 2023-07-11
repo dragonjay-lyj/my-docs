@@ -6,10 +6,376 @@
     <link>https://docs.dragonjay.top/</link>
     <description>A docs demo for vuepress-theme-hope</description>
     <language>en-US</language>
-    <pubDate>Tue, 11 Jul 2023 05:40:05 GMT</pubDate>
-    <lastBuildDate>Tue, 11 Jul 2023 05:40:05 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Jul 2023 06:12:29 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Jul 2023 06:12:29 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>Site Configuration 1</title>
+      <link>https://docs.dragonjay.top/site-configuration1.html</link>
+      <guid>https://docs.dragonjay.top/site-configuration1.html</guid>
+      <source url="https://docs.dragonjay.top/rss.xml">Site Configuration 1</source>
+      <description>language Modify the site configuration file _config.yml, not the theme configuration file. The default language is en Theme support in three languages default(en); zh-CN (simpli...</description>
+      <pubDate>Tue, 11 Jul 2023 06:10:21 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> language</h2>
+<p>Modify the site configuration file <code>_config.yml</code>, not the theme configuration file.</p>
+<p>The default language is en</p>
+<p>Theme support in three languages</p>
+<ul>
+<li>default(en)</li>
+<li>zh-CN (simplified Chinese)</li>
+<li>zh-TW (traditional Chinese)</li>
+</ul>
+<h2> Website information</h2>
+<p>Modify various information of the website, such as title, subtitle and email and other personal data, please modify the <code>_config.yml</code> in the root directory of the blog, please note that if you need to adapt pjax you must fill in the <code>description</code> field to ensure that the number of dom need to be reloaded is the same.</p>
+<h2> Navigation configuration</h2>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>Must be <code>/xxx/</code> followed by <code>||</code> separated by the icon name.</p>
+<p>If you do not want the icon to be displayed, the icon name can be left out.</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>Note: The text of the navigation can be changed.</p>
+</div>
+<p>Example:</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Navigation bar settings</h2>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>Whether to enable the nav left item buttons to control only the left item buttons</td>
+</tr>
+<tr>
+<td>travelling</td>
+<td>Whether to enable the nav travelling button</td>
+</tr>
+<tr>
+<td>clock</td>
+<td>Whether or not to enable nav Left <a href="https://widget.qweather.com/" target="_blank" rel="noopener noreferrer">Wabi-sabi</a></td>
+</tr>
+<tr>
+<td>menu</td>
+<td>nav The menu inside the left item button</td>
+</tr>
+<tr>
+<td>menu.title</td>
+<td>nav The title of the menu inside the left item button</td>
+</tr>
+<tr>
+<td>menu.item</td>
+<td>nav The menu item inside the left item button</td>
+</tr>
+<tr>
+<td>menu.item.name</td>
+<td>nav The title of the menu item within the left item button</td>
+</tr>
+<tr>
+<td>menu.item.link</td>
+<td>nav Menu item links within the left item button</td>
+</tr>
+<tr>
+<td>menu.item.icon</td>
+<td>nav The menu item icon inside the left item button</td>
+</tr>
+</tbody>
+</table>
+<h2> Code Block Configuration</h2>
+<div class="hint-container info">
+<p class="hint-container-title">Info</p>
+<p>All features in the code block only work with Hexo's own code rendering
+If you use a third-party renderer, it won't necessarily work!</p>
+</div>
+<h3> Code Highlighting Theme</h3>
+<p><code>AnZhiYu</code> Supports 6 code highlighting styles:</p>
+<ul>
+<li>darker</li>
+<li>pale night</li>
+<li>light</li>
+<li>ocean</li>
+<li>mac</li>
+<li>mac light</li>
+</ul>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> Code Copying</h3>
+<p>The theme supports code copying by modifying the <code>theme configuration file</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> Expand/Close Code Box</h3>
+<p>By default, the code box is automatically expanded, you can set whether all the code box is closed state, click &gt; Expand Code</p>
+<ul>
+<li>true All code boxes are not expanded, you need to click &gt; Open</li>
+<li>false The code box expands with a &gt; click button</li>
+<li>none Do not show &gt; button</li>
+</ul>
+<p>Modify Theme Configuration File</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Info</p>
+<p>You can also configure this independently by adding highlight_shrink to the front-matter of the markdown file corresponding to the post/page page.</p>
+<p>When <code>highlight_shrink</code> is set to true in the <strong>theme configuration file</strong>, you can add <code>highlight_shrink: false</code> to the front-matter to configure the post expand code box separately.</p>
+<p>When <code>highlight_shrin</code>k is set to false in the <strong>theme configuration file</strong>, the post shrink code box can be configured separately by adding <code>highlight_shrink: true</code> to the front-matter.</p>
+</div>
+<p><code>highlight_shrink: true</code>
+<code>highlight_shrink: false</code>
+<code>highlight_shrink: none</code></p>
+<h3> Code line feed</h3>
+<p>By default, Hexo does not implement automatic line breaks in code at compile time. If you don't want horizontal scrollbars in the code block area, then you might consider turning this feature on.</p>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>If you are using <code>highlight</code> rendering, you need to find your site's Hexo configuration file <code>_config.yml</code>, and change <code>line_number</code> to <code>false</code>: <code>line_number</code> to <code>false</code>: <code>line_number</code> to <code>false</code>: <code>line_number</code> to <code>false</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>If you are using <code>prismjs</code> rendering, you need to find your site's Hexo config file <code>_config.yml</code> and change <code>line_number</code> to <code>false</code>:.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> Code height restriction</h3>
+<p>Configurable code height limit, the exceeding part will be hidden and the expand button will be shown, default 330, configurable to <code>false</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Attention:</p>
+<ol>
+<li>
+<p>In <code>px</code>, add the number directly, e.g. 200</p>
+</li>
+<li>
+<p>The actual height limit is <code>highlight_height_limit + 30 px</code>, the purpose of adding 30px limit is to avoid that when the code height exceeds the highlight_height_limit only a little bit, there will be an expand button, and the expand button will have no content.</p>
+</li>
+<li>
+<p>Doesn't work for hidden code blocks (css set display: none)</p>
+</li>
+</ol>
+<h2> Icon Configuration</h2>
+<p>AnZhiYu Support <a href="https://www.iconfont.cn/collections/detail?cid=44481" target="_blank" rel="noopener noreferrer">Ali Icon</a> (need to configure your own icons), and <a href="https://fontawesome.com/icons?from=io" target="_blank" rel="noopener noreferrer">font-awesome v6</a> Icons (need to enable <code>fontawesome</code>), use ali icons need to configure the theme configuration file in the <code>icon.ali_iconfont_js</code> field, default built-in part of the icon, modify the theme configuration file.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Built-in Ali icon library:<a href="https://www.iconfont.cn/collections/detail?cid=44481" target="_blank" rel="noopener noreferrer">https://www.iconfont.cn/collections/detail?cid=44481</a></p>
+<p>To use it, copy the icon name from the icon library and add the prefix <code>anzhiyu-</code>, for example, <code>icon-github</code> icon, then <code>anzhiyu-icon-github</code>.</p>
+<p>Social icons, written in the format <code>name: url || descriptive text | icon name</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>If you want the hover animation to take effect you need to configure the<code>fontawesome_animation_css</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> top pics</h2>
+<div class="hint-container info">
+<p class="hint-container-title">Info</p>
+<p>If you do not want to display the top graph, you can directly configure the <code>disable_top_img: true</code></p>
+</div>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>The order in which the top graph is fetched, and if neither is configured, the top graph is not displayed.</p>
+<ol>
+<li>
+<p>Order of obtaining top-of-page images：</p>
+<p><code>the top_img of the respective configuration &gt; the default_top_img of the configuration file</code>.</p>
+</li>
+<li>
+<p>Order of getting the top image of the article page：</p>
+<p><code>the respective configured top_img &gt; cover &gt; default_top_img of the profile</code></p>
+</li>
+</ol>
+</div>
+<p>value in the configuration:</p>
+<table>
+<thead>
+<tr>
+<th>configure</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index_img</td>
+<td>top_img of the home page, example value: index_img: "background: url(https://img02.anheyu.com/xxx) top / cover no-repeat"</td>
+</tr>
+<tr>
+<td>default_top_img</td>
+<td>Default top_img, when the page's top_img is not configured, default_top_img will be shown</td>
+</tr>
+<tr>
+<td>archive_img</td>
+<td>The top_img of the archive page</td>
+</tr>
+<tr>
+<td>tag_img</td>
+<td>Default top_img for tag subpages</td>
+</tr>
+<tr>
+<td>tag_per_img</td>
+<td>top_img of tag sub-pages, configurable for each tag</td>
+</tr>
+<tr>
+<td>category_img</td>
+<td>Default top_img for category subpages</td>
+</tr>
+<tr>
+<td>category_per_img</td>
+<td>ctop_img of ategory subpages, configurable per category top_img</td>
+</tr>
+</tbody>
+</table>
+<p>For <code>top_img</code> on other pages (tags/categories/self-built pages) and article pages, please set <code>top_img</code> in <code>front-matter</code> on the corresponding md page.</p>
+<p>All of the above <code>top_img</code>s can be configured with the following values</p>
+<table>
+<thead>
+<tr>
+<th>Configured values</th>
+<th>effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leave blank</td>
+<td>Show the default top_img (if any), otherwise show the default color<br>(if the article page top_img is left empty, the value of the cover will be shown)</td>
+</tr>
+<tr>
+<td>img link</td>
+<td>Link to the image, showing the configured image</td>
+</tr>
+<tr>
+<td>Color(<br>HEX Value - #0000FF<br>RGB Value - rgb(0,0,255)<br>Color Words - orange<br>fade color - linear-gradient( 135deg, #E2B0FF 10%, #9F44D3 100%)</td>
+<td>Corresponding color</td>
+</tr>
+<tr>
+<td>transparent</td>
+<td>transparent</td>
+</tr>
+<tr>
+<td>false</td>
+<td>Do not show top_img</td>
+</tr>
+</tbody>
+</table>
+<p>It's not recommended to configure a different top image for each tag and each category, as too much configuration can slow down the generation speed</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> sticky</h2>
+<p>[Recommended] <code>hexo-generator-index</code> supports article topping since 2.0.0. You can add the <code>sticky: 1</code> attribute to the <code>front-matter</code> field of an article to make the article top. The higher the value, the higher the priority of the sticky.</p>
+<h2> Article Cover</h2>
+<p>On the markdown document of the article, add <code>cover</code> to <code>Front-matter</code> and fill in the address of the image to be displayed.</p>
+<p>If <code>cover</code> is not configured, you can set the default cover to be displayed.</p>
+<p>If you don't want to show cover on the front page, set it to <code>false.</code></p>
+<blockquote>
+<p>Order of getting article covers <code>cover</code> of <code>Front-matter</code> &gt; <code>configuration file's default_cover</code> &gt; <code>false</code></p>
+</blockquote>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>parameters</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index_enable</td>
+<td>Whether or not the home page displays the article cover image</td>
+</tr>
+<tr>
+<td>aside_enable</td>
+<td>Whether or not to display the article cover image in the sidebar</td>
+</tr>
+<tr>
+<td>archives_enable</td>
+<td>Whether or not the article cover image is displayed on the archive page</td>
+</tr>
+<tr>
+<td>position</td>
+<td>Home Card Article Cover Display Position<br>- left：Show all on the left<br>- right：Show all on the right<br>- both：Cover positions are displayed in a left-right-right rotation</td>
+</tr>
+<tr>
+<td>default_cover</td>
+<td>Default cover, configurable image links/colors/gradient colors, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>When multiple images are configured, one will be randomly selected as the cover.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Article meta Display</h2>
+<p>This option is used to display information about the article.</p>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Article copyright</h2>
+<p>Display article copyright and license agreements for your blog posts.</p>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>If there are articles (e.g., reprints) that do not need to show the copyright, you can set it separately in the article <code>Front-matter</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Supports setting copyright information for individual articles, which can be set separately in the article <code>Front-matter</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Article Rewards</h2>
+<p>At the end of each of your posts, a reward button can be added. The QR code can be configured by yourself.</p>
+<p>For those who don't provide a QR code, you can configure a software icon image and add the appropriate reward link to the link. When users click on the image, they will be redirected to the link.</p>
+<p>The link can be left out and will default to the image. coinAudio is the audio for the coin.</p>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>
+<p>On the article page, there will be a directory for displaying the TOC. modify the <code>theme profile</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th>properties</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post</td>
+<td>Whether or not the article page displays the TOC</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Whether to display TOC on normal pages</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Whether to display the number of chapters</td>
+</tr>
+<tr>
+<td>expand</td>
+<td>Whether to expand the TOC</td>
+</tr>
+<tr>
+<td>style_simple</td>
+<td>Simple Mode (sidebar only shows TOC, only available for article pages)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Configure for a specific article</strong></p>
+<p>In the header of your article md file, add toc_number and toc, and configure true or false.</p>
+<p>The theme will prioritize whether the Front-matter of the Markdown of the article has been configured, if so, the configuration of the Front-matter will prevail. Otherwise, the configuration in the theme configuration file will prevail.</p>
+<h2> Related articles</h2>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>When the article cover is set to <code>false</code>, or the cover configuration is not obtained, the background of the article in question will display the theme color.</p>
+</div>
+<p>The principle of related article recommendation is based on the weight of the article tags.</p>
+<p>Modify the <code>theme config</code></p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Article expiration reminders</h2>
+<p>You can set whether or not to show article expiration reminders, based on the update time.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code>limit_day</code>： How many days until the update time to show the article expiration reminder</p>
+<p><code>message_prev</code>： Words before days</p>
+<p><code>message_next</code>：Words after days</p>
+<h2> Article Edit Button</h2>
+<p>An edit button is displayed next to the title of the article, and clicking it will jump to the corresponding link.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> Article Pagination Button</h2>
+<div class="hint-container warning">
+<p class="hint-container-title">Note</p>
+<p>When the article cover is set to <code>false</code>, or the cover configuration is not fetched, the pagination background will display the theme color.</p>
+</div>
+<p>Pagination logic can be set, and pagination can also be turned off</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><table>
+<thead>
+<tr>
+<th style="text-align:center">parameters</th>
+<th style="text-align:center">explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">post_pagination: false</td>
+<td style="text-align:center">Close Paging Button</td>
+</tr>
+<tr>
+<td style="text-align:center">post_pagination: 1</td>
+<td style="text-align:center">Next post shows old articles</td>
+</tr>
+<tr>
+<td style="text-align:center">post_pagination: 2</td>
+<td style="text-align:center">The next post shows a new article</td>
+</tr>
+</tbody>
+</table>
+<h2> center Console</h2>
+<p>In the theme configuration file, the default is <code>true</code>.</p>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>The center console will only show function buttons in the small screen state</p>
+<p><img src="https://bu.dusays.com/2023/07/05/64a4d19e0536f.webp" alt=""></p>
+<p>When the screen is large enough, it will be able to display <code>Points of Interest</code>, <code>Recent Comments</code>, <code>Time Archives</code>, <code>Function Buttons</code>, <code>Music</code> and more!</p>
+<p><img src="https://bu.dusays.com/2023/07/05/64a4d19e0536f.webp" alt=""></p>
+]]></content:encoded>
+      <enclosure url="https://bu.dusays.com/2023/07/05/64a4d19e0536f.webp" type="image/webp"/>
+    </item>
     <item>
       <title>hexo-circle-of-friend Back-end deployment</title>
       <link>https://docs.dragonjay.top/hexo-circle-of-friends.html</link>
