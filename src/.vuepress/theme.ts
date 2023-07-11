@@ -51,9 +51,16 @@ export default hopeTheme({
       dark: "auto",
     },
 
+  feed: {
+    atom: true,
+    json: true,
+    rss: true,
+  },
+
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
+      tabs: true,
       attrs: true,
       chart: true,
       codetabs: true,
@@ -87,7 +94,6 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
       vPre: true,
       vuePlayground: true,
     },
